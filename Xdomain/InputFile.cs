@@ -16,7 +16,7 @@ namespace Xdomain
 
     class InputFile : IInputFile
     {
-        private static Logger logger = LogManager.GetCurrentClassLogger();
+        private static Logger _logger = LogManager.GetCurrentClassLogger();
         public string Path { get; set; }
         public string Hash { get; set; }
 
@@ -29,12 +29,12 @@ namespace Xdomain
             }
             catch (FileNotFoundException)
             {
-                logger.Error("The specified file does not exist, please check your file location.");
+                _logger.Error("The specified file does not exist, please check your file location.");
                 Environment.Exit(0);
             }
             catch (Exception ex)
             {
-                logger.Error(ex.Message);
+                _logger.Error(ex.Message);
                 Environment.Exit(0);
             }
             return data;
