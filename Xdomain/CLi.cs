@@ -51,7 +51,7 @@ namespace Xdomain
                 var completed = false;
                 while (!completed)
                 {
-                    //Repeatedly poll ont the data_id to retrive complete result.  
+                    //Repeatedly poll on the data_id to retrive complete result.  
                     completed = ApiAccessUtil.RetrieveResultAsync(dataId, Path.GetFileName(file.Path)).Result;
                     //Poll frequency can be changed in the config file, here 3000ms is used. 
                     Thread.Sleep(_pollFrequency);
