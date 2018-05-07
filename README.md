@@ -1,10 +1,11 @@
 ## XDomain
 A console program for scanning a file against the metadefender.opswat.com API.
 
-This program is wrote in .NET 4.7.1 using C# and contains three classes, CLi, InputFile and ApiAccessUtil. CLi contains the program entry. 
-InputFile is a warpper class for the metadata of the file. The binary data of the file is only accessed through file IO when needed. The 
-ApiAccessUtil is a static class containing method for calling API and parsing JSON data. The NLog library is used to log information and 
-Json.NET library is used for parsing JSON. 
+This program is wrote in .NET 4.7.1 using C# and contains four classes, CLi, InputFile, ApiAccessUtil and JsonHelper. CLi contains the 
+program entry. InputFile is a warpper class for the metadata of the file, which is in the Entity folder. The binary data of the file is 
+only accessed through file IO when needed. The ApiAccessUtil is a static class containing method for calling API and the JsonHelper is 
+another static class for parsing JSON data. Both classes are in the Util folder. The NLog library is used to log information and Json.NET 
+library is used for parsing JSON. 
 
 To replace the apikey, open the xml config file **App.config** inside the XDomain folder using any text editor and find the apikey entry 
 in appSettings, for example, `<add key="apikey" value="c4b8b1cab7ef8132ae9dffce384b8975"/>`, replace the value with your own key.
