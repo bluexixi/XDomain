@@ -43,7 +43,7 @@ namespace Xdomain
             else
             {
                 _logger.Debug("Uploading the file...");
-                //Blcoking call here to get the data_id.
+                //Blocking call here to get the data_id.
                 var response = ApiAccessUtil.UploadFileAsync(file).Result;
                 var dataId = ApiAccessUtil.GetDataId(response);
                 _logger.Debug("Upload completed.");
