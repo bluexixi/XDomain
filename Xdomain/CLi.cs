@@ -31,7 +31,7 @@ namespace Xdomain
             _logger.Debug("Looking up the hash...");
             //Blocking call here because the result is needed here immediately for subsequent steps.
             var jsonResult = ApiAccessUtil.CheckHashAsync(file).Result;
-            var res = ApiAccessUtil.FormatResult(jsonResult, Path.GetFileName(file.Path));
+            var res = JsonHelper.FormatResult(jsonResult, Path.GetFileName(file.Path));
             //The formatted output result is used to determine whether hash lookup is successful.
             //Hash lookup can fail for different reasons, such as http exceptions or the hash does not exist.
             //Here file upload will only happen when the hash does not exist.
@@ -45,7 +45,7 @@ namespace Xdomain
                 _logger.Debug("Uploading the file...");
                 //Blocking call here to get the data_id.
                 var response = ApiAccessUtil.UploadFileAsync(file).Result;
-                var dataId = ApiAccessUtil.GetDataId(response);
+                var dataId = JsonHelper.GetDataId(response);
                 _logger.Debug("Upload completed.");
                 _logger.Debug("Retrieving the result using the data id...");
                 var completed = false;

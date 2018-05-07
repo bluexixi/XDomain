@@ -53,13 +53,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApiAccessUtil.cs" />
-    <Compile Include="InputFile.cs" />
+    <Compile Include="Util\ApiAccessUtil.cs" />
+    <Compile Include="Entity\InputFile.cs" />
     <Compile Include="CLi.cs" />
+    <Compile Include="Util\JsonHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="NLog.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
