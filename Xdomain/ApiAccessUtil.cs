@@ -55,20 +55,21 @@ namespace Xdomain
             }
 
             string responseJson = string.Empty;
-            using (var client = new HttpClient())
+            try
             {
-                client.DefaultRequestHeaders.Add("apikey", _apikey);
-                try
+                using (var client = new HttpClient())
+                using (var fileStream = File.Open(file.Path, FileMode.Open, FileAccess.Read))
                 {
-                    var response = await client.PostAsync(_fileUrl, new StreamContent(new MemoryStream(file.GetBytes())));
+                    client.DefaultRequestHeaders.Add("apikey", _apikey);
+                    var response = await client.PostAsync(_fileUrl, new StreamContent(fileStream));
                     response.EnsureSuccessStatusCode();
                     responseJson = await response.Content.ReadAsStringAsync();
                 }
-                catch (Exception ex)
-                {
-                    _logger.Error(ex.Message);
-                    Environment.Exit(0);
-                }
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex.Message);
+                Environment.Exit(0);
             }
             return responseJson;
         }
