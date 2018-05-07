@@ -20,7 +20,7 @@ the executable in the "Release" folder, which is also in the bin folder.
 2. The files (exe, dll, config files etc) in the Debug folder can be copied and used in different locations.  
 3. For example, the program will be executed in the Debug folder. In the "Debug" folder, shift + right-click to open a powershell window 
 inside the Debug folder, or open a powershell widow and cd to the Debug folder, 
-4. The usage: .\Xdomain.exe upload_file file_path   Note: the first argument should always be "upload_file" (case insensetive), the second
+4. The usage: **.\Xdomain.exe upload_file file_path**   Note: the first argument should always be "upload_file" (case insensetive), the second
 argument should be the full path of the file, such as "‪D:\Xdomain\Xdomain\bin\Debug\test.pdf", unless the file is in the same folder with 
 the executable.  
 
